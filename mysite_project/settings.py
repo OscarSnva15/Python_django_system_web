@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'my_app',
+    'my_app',#agregamos nuestra app, para crear en su conjunto un proyecto completo
+    #puedo crearme mi app, puedo llevarmela a otro proyecto django.
 ]
 
 MIDDLEWARE = [

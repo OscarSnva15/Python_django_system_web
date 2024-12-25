@@ -128,12 +128,17 @@ django-admin --version
 
 Once time that we have installed django into project, we goint to init with our first project
 
-## Creating project Dashboard for project Django_System_App. . .
+## Creating Python_django_system_web
 
-                                                                    :)
+1.- Creamos y agregamos nuestra app, para crear en su conjunto un proyecto completo, recordando que cada app creada, puede llevarse a otro proyecto django. Ok para crear nuestra aplicacion, una vez tenida toda la ruitectura del sistema, se ejecutarna las siguientes instruciones dentro del proyecto, en la una consola del sistema web.
 
-Hola mi nombre es oscar, if you wants to watch the documentation abouth <u>"Creating project Dashboard for project Django_System_App"</u> please send me email. because for moment the documentation is wrritting in my One Note on line, from Notion account :D
+```
+python3 manage.py startapp 'nombre_app'
+# en este caso
+python3 manage.py startapp 'my_app'
+```
 
+ 
 Grettings, Oscar snva15
 
 [oscarsnva15@gmail.com](mailto:oscarsnva15@gmail.com)
