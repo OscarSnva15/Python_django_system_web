@@ -137,8 +137,34 @@ python3 manage.py startapp 'nombre_app'
 # en este caso
 python3 manage.py startapp 'my_app'
 ```
+## Crear una vista
 
- 
-Grettings, Oscar snva15
+antes de crear una vista debemos saber que en django las vistas se llama template, y el controlador en djagno se conoce como vista, entonces tenemos que 
+MVC: Modelo vista controlador
+MCT: Modelo controlador template
+
+especificamente dentro de las views en nuestra carpeta de "My_app" es como podemos definir nuestras vistas que serían templates, en donde esta secion o ubicación pasaría a formar como parte de un controler.
+
+como acontinuacion se muestra
+
+```
+def hello(request):
+	return HttpResponse("<h2>Hello Word</h2>")
+```
+Una vez hecho eso, ejecutamos lo siguiente
+
+`python manage.py runserver`
+
+enseguida, en archivo urls de django lo definifos para llamar la funcion asi
+
+```
+#importar app. con mis vistas
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('my_app.urls'))
+]
+```
+
+Grettings, OscarSnva15
 
 [oscarsnva15@gmail.com](mailto:oscarsnva15@gmail.com)

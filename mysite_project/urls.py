@@ -25,7 +25,7 @@ from django.urls import path, include
     determinadas funciones
 """
 
-
+#importar app. con mis vistas
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('my_app.urls'))
