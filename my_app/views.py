@@ -1,6 +1,7 @@
 #django tiene mucho modulos, que podemos utilizar
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 #YO PUEDO TENER UN PLANTILLA QUE PUEDE SER CONCATENADA EN CADA URL LLAMADA
 layout ="""
@@ -14,7 +15,10 @@ layout ="""
             <a href="/abouth/">nosotros</a>
             </li>
             <li>
-            <a href="/proyects/">proyectos</a>
+            <a href="/proyectos/0">proyectos</a>
+            </li>
+            <li>
+            <a href="/contactos-dos/">contactos</a>
             </li>
         </ul>
         <hr>
@@ -51,7 +55,10 @@ def abouth(request):
         <p>We are an company dedicate to support of aplications web on line</p>
     """)
 
-def proyectos(request):
+def proyectos(request, redirigir=0):
+
+    if redirigir == 1:
+        return redirect('contacto', nombre= 'oscar', apellidos= 'suarez')
 
     proyectos_template = """
             <h2>Proyectos Dev OscarSnva15</h2>
@@ -68,3 +75,11 @@ def proyectos(request):
         <h2>PROYECTOS</h2>
         <p>We are an company dedicate to support of aplications web on line</p>
     """+ proyectos_template)
+
+def contactos(request, nombre="", apellidos=""):
+    if nombre and apellidos:
+        html = f"<p>El nombre completo es: {nombre} {apellidos}</p>"
+    else:
+        html = f"<p>No se ingreso nungun nombre: {apellidos}</p>"
+
+    return HttpResponse(layout+html)

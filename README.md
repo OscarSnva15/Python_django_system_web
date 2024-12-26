@@ -164,6 +164,20 @@ urlpatterns = [
     path('', include('my_app.urls'))
 ]
 ```
+## Parametros en una vista
+
+se llaman asi en la funcion de url
+`path('contactos/<str:nombre>/<str:apellidos>', views.contactos, name="contactos"),`
+
+depues en la funcion o template lo recibimos asi
+
+```
+def contactos(request, nombre, apellidos):
+    return HttpResponse(layout+f""" Hola: 
+        {nombre} {apellidos}
+    """)
+
+```
 
 Grettings, OscarSnva15
 
