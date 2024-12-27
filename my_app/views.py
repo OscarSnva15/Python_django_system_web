@@ -27,6 +27,7 @@ layout ="""
 # Create your views here. send files html
 def index(request):
     #podemos usar cualquier tipo de instruciones para devolver cualquier cosa
+
     html = """
         <h2>HTML</h2>
         <p>AÑOS HASTA EL 2050!</p>
@@ -41,13 +42,10 @@ def index(request):
     html += "</ul>"
 
 
-    return HttpResponse(layout+html)
+    return render(request,'index.html')
 
 def inicio(request):
-    return HttpResponse(layout+"""
-        <h2>HOME</h2>
-        <p>Inicio home!</p>
-    """)
+    return render(request,'inicio.html')
 
 def abouth(request):
     return HttpResponse(layout+"""
