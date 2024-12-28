@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout django web osc</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>
+        {% block title %}
+        
+        {% endblock %}
+        | Oscar Suarez
+    </h1>
+        <hr>
+        <ul>
+            <li>
+            <a href="/home/">Inicio desde el layout</a>
+            </li>
+            <li>
+            <a href="/abouth/">nosotros desde el layout</a>
+            </li>
+            <li>
+            <a href="/proyectos/0">proyectos desde el layout </a>
+            </li>
+            <li>
+            <a href="/contactos-dos/">contactos desde el layout</a>
+            </li>
+        </ul>
+        <hr>
+        <div id="conted">
+            {% block content %}
+            <p>contenidfo fijo de un bloque</p>
+
+            {% endblock %}
+        </div>
+    <hr>
+    <footer>
+        <p>Este es el pie de pagina desde el layout</p>
+    </footer>
+</body>
+</html>

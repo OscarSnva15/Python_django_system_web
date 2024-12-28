@@ -179,6 +179,18 @@ def contactos(request, nombre, apellidos):
 
 ```
 
+crear bloques para concatenar, un bloque es un trozo de la pantalla que sera sustituido con otro. y se define asi
+
+```
+{% block content %} # Aqui se inserta el contenido de cada template
+
+{% endblock %}
+```
+
+ok para caragar contenido ccs, debemos para una aplicacion del proyecto djgango debemos generar una carpeta static dentro del directorio de la aplicacion. 
+como se muestra acontinuacion
+
+
 Grettings, OscarSnva15
 
 [oscarsnva15@gmail.com](mailto:oscarsnva15@gmail.com)

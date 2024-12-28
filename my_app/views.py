@@ -4,25 +4,28 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 
 #YO PUEDO TENER UN PLANTILLA QUE PUEDE SER CONCATENADA EN CADA URL LLAMADA
-layout ="""
-        <h1>Sitio web con Django | Oscar Suarez Nava </h1>
-        <hr>
-        <ul>
-            <li>
-            <a href="/home">Inicio</a>
-            </li>
-            <li>
-            <a href="/abouth/">nosotros</a>
-            </li>
-            <li>
-            <a href="/proyectos/0">proyectos</a>
-            </li>
-            <li>
-            <a href="/contactos-dos/">contactos</a>
-            </li>
-        </ul>
-        <hr>
-"""
+# def new_func():
+#     layout ="""
+#         <h1>Sitio web con Django | Oscar Suarez Nava </h1>
+#         <hr>
+#         <ul>
+#             <li>
+#             <a href="/home">Inicio</a>
+#             </li>
+#             <li>
+#             <a href="/abouth/">nosotros</a>
+#             </li>
+#             <li>
+#             <a href="/proyectos/0">proyectos</a>
+#             </li>
+#             <li>
+#             <a href="/contactos-dos/">contactos</a>
+#             </li>
+#         </ul>
+#         <hr>
+# """
+#    
+layout = """ layput sin sentido"""
 
 # Create your views here. send files html
 def index(request):
@@ -41,8 +44,8 @@ def index(request):
 
     html += "</ul>"
 
-
-    return render(request,'index.html')
+    #en lugar de generar aui la vista o rederizarla se hace el llamado de un template
+    return render(request, 'index.html')#pasar el nombre de la template que queremos cargar
 
 def inicio(request):
     return render(request,'inicio.html')
@@ -53,7 +56,7 @@ def abouth(request):
         <p>We are an company dedicate to support of aplications web on line</p>
     """)
 
-def proyectos(request, redirigir=0):
+def pagina(request, redirigir=0):
 
     if redirigir == 1:
         return redirect('contacto', nombre= 'oscar', apellidos= 'suarez')
@@ -69,10 +72,7 @@ def proyectos(request, redirigir=0):
 
     proyectos_template += "</ul>"
 
-    return HttpResponse(layout+"""
-        <h2>PROYECTOS</h2>
-        <p>We are an company dedicate to support of aplications web on line</p>
-    """+ proyectos_template)
+    return render(request, 'pagina.html')
 
 def contactos(request, nombre="", apellidos=""):
     if nombre and apellidos:

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'my_app',#agregamos nuestra app, para crear en su conjunto un proyecto completo
+    'my_app',#agregamos nuestra app, para crear en su conjunto un proyecto completo y que la reconozca como funcional y la llame junto con sus mecanismos
     #puedo crearme mi app, puedo llevarmela a otro proyecto django.
 ]
 
