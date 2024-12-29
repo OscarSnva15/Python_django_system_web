@@ -8,13 +8,16 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>
-        {% block title %}
-        
-        {% endblock %}
-        | Oscar Suarez
-    </h1>
-        <hr>
+    <!-- agregar una cabezera de la pagina -->
+    <header>
+        <div id="logotipo">
+            <!-- logotipo de la pagina -->
+            <img src="{% static 'images/logo.png' %}" alt="logo de la pagina">
+            <h1>Sistema web | Django</h1>
+        </div>
+    </header>
+
+    <nav>
         <ul>
             <li>
             <a href="/home/">Inicio desde el layout</a>
@@ -29,16 +32,18 @@
             <a href="/contactos-dos/">contactos desde el layout</a>
             </li>
         </ul>
-        <hr>
-        <div id="conted">
-            {% block content %}
-            <p>contenidfo fijo de un bloque</p>
+    </nav>
 
-            {% endblock %}
-        </div>
-    <hr>
+    <div id="conted">
+        <h2 class="title">Titulo de prueba</h2>
+        {% block content %}
+        <h3>contenidfo fijo de un bloque original!!</h3>
+
+        {% endblock %}
+    </div>
+
     <footer>
-        <p>Este es el pie de pagina desde el layout</p>
+        <p>Sistema recomendador Oscys &copy; </p>
     </footer>
 </body>
 </html>

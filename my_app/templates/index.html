@@ -1,10 +1,6 @@
 {%extends "layout.html"%}
 
-{%block title%} 
-<h1>INDEX DESDE UN TEMPLATE</h1>
-{%endblock%}
-
 {% block content %}
-    {{block.super}} <!-- Esto es para que se muestre el contenido del bloque content del layout.html padre-->    
-    <p>contenido desde el index cargado y nop desde el layout</p>
+    {{block.super}} <!-- Esto es para que se muestre el contenido del bloque content del layout.html padre-->
+    <p>contenido del index</p>
 {% endblock %}

@@ -1,4 +1,40 @@
+/* estilos generales */
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif, Arial, Helvetica;
+    text-decoration: aliceblue d;
+}
+/* estilos del body */
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: red;
+    background-color: #f2f2f2;
+}
+/* estilos del header */
+header{
+    width: 1212px;
+    height: 140px;
+    background-color: #232828;
+    margin: 0% auto;
+}
+/* estilos del logotipo */
+#logotipo{
+    margin: 0% auto;
+    padding-left: 350px;
+}
+
+#logotipo img{
+    display: block;
+    width: 80px;
+    float: left;
+    margin-top: 20px;
+}
+
+#logotipo h1{
+    display: block;
+    float: left;
+    margin-top: 35px;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    color: #42a977;
 }
