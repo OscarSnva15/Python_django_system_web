@@ -33,13 +33,22 @@
             </li>
         </ul>
     </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="esquina-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
 
     <div id="conted">
-        <h2 class="title">Titulo de prueba</h2>
-        {% block content %}
-        <h3>contenidfo fijo de un bloque original!!</h3>
 
-        {% endblock %}
+        <dic class="box">
+            <h2 class="title">Titulo de prueba</h2>
+            {% block content %}
+                <h3>contenidfo fijo de un bloque original!!</h3>
+
+            {% endblock %}
+        </dic>
+
     </div>
 
     <footer>

@@ -38,3 +38,48 @@ header{
     font-weight: lighter;
     color: #42a977;
 }
+/* estilos barra de navgeacion */
+nav{
+    width: 1250px;
+    height: 40px;
+    margin: 0% auto;
+    background-color: #1B1E1F;
+    border: 1px solid #333333;
+    box-shadow: 0px 22px 22px gray;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+nav ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul li{
+    line-height: 40px;
+    float: left;
+}
+
+nav ul li a{
+    display: block;
+    padding-left: 15px;
+    padding-left: 15px;
+    color: #fff;
+}
+
+nav ul li a:hover{
+    background-color: #42a977;
+    box-shadow: 0px, 0px, 5px, #444 inset;
+    color: white;
+    transition: all 0.5s;
+}
+/* estilos contenido central */
+#conted {
+    width: 1212px;
+    min-height: 530px;
+    margin: 0% auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-shadow: 0px 22px 22px gray;
+    margin-bottom: 20px;
+}
