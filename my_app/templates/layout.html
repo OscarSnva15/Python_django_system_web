@@ -20,16 +20,16 @@
     <nav>
         <ul>
             <li>
-            <a href="/home/">Inicio</a>
+            <a href="/">Inicio</a>
             </li>
             <li>
-            <a href="/abouth/">Nosotros</a>
+            <a href="/abouth/">Abouth</a>
             </li>
             <li>
-            <a href="/proyectos/0">Proyectos</a>
+            <a href="/proyect/">Proyect</a>
             </li>
             <li>
-            <a href="/contactos-dos/">Contactos</a>
+            <a href="/contacs/">Contacs</a>
             </li>
         </ul>
     </nav>
@@ -40,9 +40,12 @@
     </div>
 
     <div id="conted">
-
+        {% comment %} esto es un comentario en django {% endcomment %}
         <dic class="box">
             <h2 class="title">Titulo de prueba</h2>
+            {%comment 'Esto es un comentario en django'%}
+               <p> esto es un comentario en django</p>
+            {% endcomment %}
             {% block content %}
                 <h3>contenidfo fijo de un bloque original!!</h3>
 
