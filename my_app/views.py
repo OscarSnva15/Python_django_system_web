@@ -17,9 +17,17 @@ def index(request):
     #         html += f"<li>{str(year)}</li>"
     #     year +=1
     # html += "</ul>"
+    nombre = 'OscarSnva15'
+    lenguajes = ['Python','JavaScript','C++','Java']
+    #lenguajes = []
 
     #en lugar de generar a1ui la vista o rederizarla se hace el llamado de un template
-    return render(request, 'index.html')#pasar el nombre de la template que queremos cargar
+    return render(request, 'index.html', {
+        'title':'Inicio',
+        'nombre':nombre,
+        'mi_variable':'soy un dato que esta en la vista',
+        'lenguajes':lenguajes
+        })#pasar el nombre de la template que queremos cargar
 
 def abouth(request):
     return render(request,'abouth.html')

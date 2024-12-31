@@ -1,6 +1,24 @@
 {%extends "layout.html"%}
 
 {% block content %}
-    {{block.super}} <!-- Esto es para que se muestre el contenido del bloque content del layout.html padre-->
-    <p>contenido del index</p>
+    <h1 class="title"> {{title}} </h1>
+    {% comment %} Nota para el comentario {% endcomment %}
+    
+    
+    <p>Esta es mi variable: {{mi_variable}}</p>
+    {% if nombre and nombre == "OscarSnva15" %}
+        <p>Este es nombre: {{nombre}}</p>
+    {% else %}
+        <p>El nombre no existe o no coincide </p>
+    {% endif %}
+
+    <h3>Lista de lenguajes de programación</h3>
+    <ul>
+        {% for lenguaje in lenguajes %}
+            <li>{{forloop.counter}} {{lenguaje}} </li>
+        {% empty %}
+            <p>No hay lenguajes de programación</p>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
