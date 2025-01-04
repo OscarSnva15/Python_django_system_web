@@ -3,22 +3,41 @@
 {% block content %}
     <h1 class="title"> {{title}} </h1>
     {% comment %} Nota para el comentario {% endcomment %}
-    
-    
-    <p>Esta es mi variable: {{mi_variable}}</p>
-    {% if nombre and nombre == "OscarSnva15" %}
-        <p>Este es nombre: {{nombre}}</p>
-    {% else %}
-        <p>El nombre no existe o no coincide </p>
-    {% endif %}
-
-    <h3>Lista de lenguajes de programación</h3>
-    <ul>
-        {% for lenguaje in lenguajes %}
-            <li>{{forloop.counter}} {{lenguaje}} </li>
-        {% empty %}
-            <p>No hay lenguajes de programación</p>
-        {% endfor %}
-    </ul>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <p>Esta es mi variable: {{mi_variable}}</p>
+                {% if nombre and nombre == "OscarSnva15" %}
+                    <p>Este es nombre: {{nombre}}</p>
+                {% else %}
+                    <p>El nombre no existe o no coincide </p>
+                {% endif %}
+            </div>
+            <div class="col-sm">
+                <p>Lista de años pares</p>
+                <ul>
+                {%for year in years %}
+                    {%if year|divisibleby:2 != 0 %}
+                        <li>Este es el año: {{year}}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm">
+                One of three columns
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <ul>
+                    <h3>Lista de lenguajes de programación</h3>
+                    {% for lenguaje in lenguajes %}
+                        <li>{{forloop.counter}} {{lenguaje}} </li>
+                    {% empty %}
+                        <p>No hay lenguajes de programación</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -19,6 +19,8 @@ def index(request):
     # html += "</ul>"
     nombre = 'OscarSnva15'
     lenguajes = ['Python','JavaScript','C++','Java']
+    year = 2024
+    hasta = range(year,2051)
     #lenguajes = []
 
     #en lugar de generar a1ui la vista o rederizarla se hace el llamado de un template
@@ -26,7 +28,8 @@ def index(request):
         'title':'Inicio',
         'nombre':nombre,
         'mi_variable':'soy un dato que esta en la vista',
-        'lenguajes':lenguajes
+        'lenguajes':lenguajes,
+        'years':hasta
         })#pasar el nombre de la template que queremos cargar
 
 def abouth(request):
