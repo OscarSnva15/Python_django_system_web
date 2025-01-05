@@ -3,4 +3,7 @@
 {% block content %}
     {{block.super}} <!-- Esto es para que se muestre el contenido del bloque content del layout.html padre-->
     <p>contenido del proyect</p>
+
+    {% comment %} filtroe en django  {% endcomment %}
+    <p> {{ "Osca Suarez Nava" | cut: "a,2" }} </p>
 {% endblock %}
