@@ -1,6 +1,7 @@
 {%extends "layout.html"%}
 
 {% block content %}
+{% include "fecha_actual.html" with saludo="hola mundo desde platilla importada" only %}"
     <h1 class="title"> {{title}} </h1>
     {% comment %} Nota para el comentario {% endcomment %}
     <div class="container">
