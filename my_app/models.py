@@ -13,4 +13,3 @@ class Category(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=250)
     created_at = models.DateTimeField()
-    
