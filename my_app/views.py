@@ -54,3 +54,9 @@ def create_article(request,title,content,public):
     
     return HttpResponse(f"article_made: {article.title} - {article.content} - {article.public} - {article.image} - {article.created_at} - {article.update_at}")
 
+def view_article(request):
+    try:
+        article = Article.objects.get(title="Superman", public=True)
+        return HttpResponse(f"Articulo: {article.id}{article.title}{article.title}")
+    except:
+        return HttpResponse("Articulo no encontrado")    
