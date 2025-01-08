@@ -1,0 +1,19 @@
+
+{%extends "layout.html"%}
+
+{% block content %}
+    {{block.super}} <!-- Esto es para que se muestre el contenido del bloque content del layout.html padre-->
+    <p>contenido del proyect</p>
+
+    {% comment %} filtroe en django  {% endcomment %}
+    <h1>Articulos</h1>
+    {% for articles in articles %}
+        <h2>{{articles.id}} {{articles.title}}</h2>
+        <spam>{{articles.created_at}}<spam>
+        <p>
+            {{articles.content}}
+            <a href="{% url 'delete_article' articles.id %}">Borrar article</a>
+        </p>
+        
+    {% endfor %}
+{% endblock %}
