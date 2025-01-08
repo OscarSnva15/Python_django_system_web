@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from my_app.models import Article,Category
 
 # Create your views here. send files html
 def index(request):
@@ -40,3 +41,16 @@ def proyect(request):
 
 def contacs(request):
     return render(request,'contacs.html')
+
+def create_article(request,title,content,public):
+    #print(title,content,public)
+    #crear un objeto de tipo articulo en la base de datos
+    article = Article(
+        title = title,
+        content = content,
+        public = public
+    )
+    article.save()
+    
+    return HttpResponse(f"article_made: {article.title} - {article.content} - {article.public} - {article.image} - {article.created_at} - {article.update_at}")
+
