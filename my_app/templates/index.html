@@ -1,43 +1,25 @@
 {%extends "layout.html"%}
-
+{%load static%}
+{% block title %}{{title}}{% endblock %}
 {% block content %}
-{% include "fecha_actual.html" with saludo="hola mundo desde platilla importada" only %}
-    <h1 class="title"> {{title}} </h1>
+{% comment %} {% include "fecha_actual.html" with saludo="hola mundo desde platilla importada" only %} {% endcomment %}
+    {% comment %} <h1 class="title"> {{title}} </h1> {% endcomment %}
     {% comment %} Nota para el comentario {% endcomment %}
     <div class="container">
         <div class="row">
-            <div class="col-sm">
-                <p>Esta es mi variable: {{mi_variable}}</p>
-                {% if nombre and nombre == "OscarSnva15" %}
-                    <p>Este es nombre: {{nombre}}</p>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12"> 
+                {% if nombre_autor and nombre_autor == "Oscar Suarez Nava" and nombre_coautor == "Heriberto Casarrubias Vargas" %}
+                    <p class="text-center">Autor: {{nombre_autor}}, Coautor: {{nombre_coautor}}</p>
                 {% else %}
-                    <p>El nombre no existe o no coincide </p>
+                    <p>Sitio restrigido, por favor comuniquese con el Administrador del sistema</p>
                 {% endif %}
-            </div>
-            <div class="col-sm">
-                <p>Lista de años pares</p>
-                <ul>
-                {%for year in years %}
-                    {%if year|divisibleby:2 != 0 %}
-                        <li>Este es el año: {{year}}</li>
-                    {% endif %}
-                {% endfor %}
-                </ul>
-            </div>
-            <div class="col-sm">
-                One of three columns
             </div>
         </div>
         <div class="row">
-            <div class="col-sm">
-                <ul>
-                    <h3>Lista de lenguajes de programación</h3>
-                    {% for lenguaje in lenguajes %}
-                        <li>{{forloop.counter}} {{lenguaje}} </li>
-                    {% empty %}
-                        <p>No hay lenguajes de programación</p>
-                    {% endfor %}
-                </ul>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+                <p class="text-center">
+                    <img src="{% static 'images/logo_Sr.png' %}" alt="imagen funcionamiento del sistema recomendador" class="img-fluid" width="500" height="544">
+                </p>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     font-family: sans-serif, Arial, Helvetica;
-    text-decoration: aliceblue d;
+    text-decoration: aliceblue;
 }
 /* estilos de la parrafos */
 p, h2, h3, ul{
@@ -43,7 +43,7 @@ header{
 #logotipo h1{
     display: block;
     float: left;
-    margin-top: 35px;
+    margin-top: 30px;
     margin-left: 20px;
     letter-spacing: 2px;
     font-weight: lighter;
@@ -56,7 +56,7 @@ nav{
     margin: 0% auto;
     background-color: #1B1E1F;
     border: 1px solid #333333;
-    box-shadow: 0px 22px 22px gray;
+    box-shadow: 0px 22px 22px rgb(128, 128, 128);
     font-size: 13px;
     margin-bottom: 25px;
 }
@@ -88,7 +88,7 @@ nav ul li a:hover{
 /* estilos contenido central */
 #conted {
     width: 1212px;
-    min-height: 530px;
+    min-height: 230px;
     margin: 0% auto;
     background-color: #f2f2f2;
     padding: 20px;

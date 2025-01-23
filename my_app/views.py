@@ -19,19 +19,14 @@ def index(request):
     #         html += f"<li>{str(year)}</li>"
     #     year +=1
     # html += "</ul>"
-    nombre = 'OscarSnva15'
-    lenguajes = ['Python','JavaScript','C++','Java']
-    year = 2024
-    hasta = range(year,2051)
-    #lenguajes = []
+    nombre_autor = 'Oscar Suarez Nava'
+    nombre_coautor = 'Heriberto Casarrubias Vargas'
 
     #en lugar de generar a1ui la vista o rederizarla se hace el llamado de un template
     return render(request, 'index.html', {
-        'title':'Inicio',
-        'nombre':nombre,
-        'mi_variable':'soy un dato que esta en la vista',
-        'lenguajes':lenguajes,
-        'years':hasta
+        'title':'Recommender Bussines System',
+        'nombre_autor':nombre_autor,
+        'nombre_coautor':nombre_coautor
         })#pasar el nombre de la template que queremos cargar
 
 def abouth(request):
@@ -44,6 +39,18 @@ def contacs(request):
     return render(request,'contacs.html')
 
 def create_article(request,title,content,public):
+    #print(title,content,public)
+    #crear un objeto de tipo articulo en la base de datos
+    article = Article(
+        title = title,
+        content = content,
+        public = public
+    )
+    article.save()
+    
+    return HttpResponse(f"article_made: {article.title} - {article.content} - {article.public} - {article.image} - {article.created_at} - {article.update_at}")
+
+def save_article(request,title,content,public):
     #print(title,content,public)
     #crear un objeto de tipo articulo en la base de datos
     article = Article(
