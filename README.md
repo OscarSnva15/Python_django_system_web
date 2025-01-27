@@ -189,6 +189,8 @@ crear bloques para concatenar, un bloque es un trozo de la pantalla que sera sus
 
 ok para caragar contenido ccs, debemos para una aplicacion del proyecto djgango debemos generar una carpeta static dentro del directorio de la aplicacion. 
 como se muestra acontinuacion
+![logo_Sr](https://github.com/user-attachments/assets/ecedefd3-81de-49d3-9152-11347b2a7807)
+
 
 
 Grettings, OscarSnva15
