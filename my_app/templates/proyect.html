@@ -1,50 +1,12 @@
 
 {%extends "layout.html"%}
-
+{%load static%}
 {% block content %}
-    {{block.super}} <!-- Esto es para que se muestre el contenido del bloque content del layout.html padre-->
-    <p>contenido del proyect</p>
-
-    {% comment %} filtroe en django  {% endcomment %}
-    <p>{{ "Oscar Suarez Nava"|cut:"a" }} </p> <!-- filtros por defecto. hay un monton incluso se pueden mostrar o crear filtros propios -->
-    {% load filters %}
-    {{"oscars"|saludo|safe}} <!-- filtro default -->
-    {{texto|default:"no hay nada"}} <!-- filtro default -->
-    {{texto|length}} <!-- filtro length -->
-    {{texto|truncatewords:2}} <!-- filtro truncatewords -->
-    {{texto|upper}} <!-- filtro upper -->
-    {{texto|lower}} <!-- filtro lower -->
-    {{texto|title}} <!-- filtro title -->
-    {{texto|capfirst}} <!-- filtro capfirst -->
-    {{texto|escape}} <!-- filtro escape -->
-    {{texto|linebreaks}} <!-- filtro linebreaks -->
-    {{texto|linebreaksbr}} <!-- filtro linebreaksbr -->
-    {{texto|safe}} <!-- filtro safe -->
-    {{texto|striptags}} <!-- filtro striptags -->
-    {{texto|date:"Y-m-d"}} <!-- filtro date -->
-    {{texto|time:"H:i:s"}} <!-- filtro time -->
-    {{texto|timesince}} <!-- filtro timesince -->
-    {{texto|timeuntil}} <!-- filtro timeuntil -->
-    {{texto|truncatechars:5}} <!-- filtro truncatechars -->
-    {{texto|urlize}} <!-- filtro urlize -->
-    {{texto|urlizetrunc:5}} <!-- filtro urlizetrunc -->
-    {{texto|wordcount}} <!-- filtro wordcount -->
-    {{texto|wordwrap:5}} <!-- filtro wordwrap -->
-    {{texto|yesno:"si,no"}} <!-- filtro yesno -->
-    {{texto|default_if_none:"no hay nada"}} <!-- filtro default_if_none -->
-    {{texto|filesizeformat}} <!-- filtro filesizeformat -->
-    {{texto|pluralize}} <!-- filtro pluralize -->
-    {{texto|add:"hola"}} <!-- filtro add -->
-    {{texto|addslashes}} <!-- filtro addslashes -->
-    {{texto|center:10}} <!-- filtro center -->
-    {{texto|cut:"a"}} <!-- filtro cut -->
-    {{texto|escapejs}} <!-- filtro escapejs -->
-    {{texto|floatformat:2}} <!-- filtro floatformat -->
-    {{texto|iriencode}} <!-- filtro iriencode -->
-    {{texto|linenumbers}} <!-- filtro linenumbers -->
-    {{texto|ljust:10}} <!-- filtro ljust -->
-    {{texto|make_list}} <!-- filtro make_list -->
-    {{texto|phone2numeric}} <!-- filtro phone2numeric -->
-    {{texto|pluralize}} <!-- filtro pluralize -->
-    {{texto|pprint}} <!-- filtro pprint -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"> 
+            
+        </div>
+    </div>
+</div>
 {% endblock %}

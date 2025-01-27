@@ -38,7 +38,7 @@ def proyect(request):
 def contacs(request):
     return render(request,'contacs.html')
 
-def create_article(request,title,content,public):
+def create_article_(request,title,content,public):
     #print(title,content,public)
     #crear un objeto de tipo articulo en la base de datos
     article = Article(
@@ -50,17 +50,16 @@ def create_article(request,title,content,public):
     
     return HttpResponse(f"article_made: {article.title} - {article.content} - {article.public} - {article.image} - {article.created_at} - {article.update_at}")
 
-def save_article(request,title,content,public):
-    #print(title,content,public)
-    #crear un objeto de tipo articulo en la base de datos
-    article = Article(
-        title = title,
-        content = content,
-        public = public
-    )
-    article.save()
+def save_article(request):
+    if request.method == 'GET':
+        numero = request.GET['numero']
+        
+        return HttpResponse(f"<h2>Numero recibido: {numero} para enviar menssaje de whatsapp mediante la conexión al web service whatsapp</h2><a href='http://wa.me/{numero}'>Enviar mensaje</a>")
+    else:
+        return HttpResponse("<h2>No se ha podido guardar el articulo</h2>")
     
-    return HttpResponse(f"article_made: {article.title} - {article.content} - {article.public} - {article.image} - {article.created_at} - {article.update_at}")
+def create_article(request):
+    return render(request,'create_article.html')
 
 def view_article(request):
     try:
