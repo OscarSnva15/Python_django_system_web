@@ -38,7 +38,7 @@ def proyect(request):
 def contacs(request):
     return render(request,'contacs.html')
 
-def create_article_(request,title,content,public):
+def show_predictions(request,title,content,public):
     #print(title,content,public)
     #crear un objeto de tipo articulo en la base de datos
     article = Article(
