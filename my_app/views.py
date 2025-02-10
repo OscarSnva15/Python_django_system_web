@@ -7,18 +7,6 @@ from django.db.models import Q
 
 # Create your views here. send files html
 def index(request):
-    #podemos usar cualquier tipo de instruciones para devolver cualquier cosa
-    # html = """
-    #     <h2>HTML</h2>
-    #     <p>AÑOS HASTA EL 2050!</p>
-    #     <ul>
-    # """
-    # year = 2021
-    # while year <= 2050:
-    #     if year % 2 == 0:
-    #         html += f"<li>{str(year)}</li>"
-    #     year +=1
-    # html += "</ul>"
     nombre_autor = 'Oscar Suarez Nava'
     nombre_coautor = 'Heriberto Casarrubias Vargas'
 
@@ -32,13 +20,13 @@ def index(request):
 def abouth(request):
     return render(request,'abouth.html')
 
-def proyect(request):
-    return render(request,'proyect.html')
+def recomender(request):
+    return render(request,'recomender.html')
 
 def contacs(request):
     return render(request,'contacs.html')
 
-def show_predictions(request,title,content,public):
+def predict(request,title,content,public):
     #print(title,content,public)
     #crear un objeto de tipo articulo en la base de datos
     article = Article(
@@ -76,7 +64,7 @@ def edit_article(request,id):
     article.save()
     return HttpResponse(f"Articulo editado: {article.title} - {article.content}")
 
-def show_article(request):
+def show_predict(request):
     #article = Article.objects.all()
     #article = Article.objects.order_by('id')
     #article = Article.objects.order_by('title')
@@ -94,7 +82,7 @@ def show_article(request):
     
     article = Article.objects.filter(
         Q(title__contains="2") | Q(title__contains="3") ) #aplica un filtro de id, menores a 12
-    return render(request,'articles.html',{'articles':article})
+    return render(request,'show_predict.html',{'articles':article})
 
 def delete_article(request,id):
     article = Article.objects.get(pk=id)
