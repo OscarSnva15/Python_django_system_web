@@ -4,6 +4,10 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from my_app.models import Article,Category
 from django.db.models import Q
+#import librerias para sistema recomendader
+from .dataclasses import Collector
+import pandas as pd
+import os
 
 # Create your views here. send files html
 def index(request):
@@ -40,11 +44,27 @@ def predict(request,title,content,public):
 
 def save_article(request):
     if request.method == 'GET':
-        numero = request.GET['numero']
+        # diccionario de coordenadas
+        coords = request.GET['coordenadas']
         
-        return HttpResponse(f"<h2>Numero recibido: {numero} para enviar menssaje de whatsapp mediante la conexión al web service whatsapp</h2><a href='http://wa.me/{numero}'>Enviar mensaje</a>")
+        #implementar la logica para generar el ecosistema ecodemografico
+        # coordenadas = {
+        #                 'lat': 19.609181,
+        #                 'lng': -99.326262
+        #             }
+        # coordinates_point_get
+        df = os.path.join(os.path.dirname(__file__), 'data', 'crecimientoNicolasRomero.csv')
+        df = pd.read_csv(df)
+        # coordinates_point_get
+        time_window = 3
+        print(df.head())
+        #point_interest = Collector(df, coords, time_window)
+        #point_interest.find_business_into_radius()
+        #vdlc = point_interest.report_accumulated_business_support()
+        
+        return render(request,'recomender.html')
     else:
-        return HttpResponse("<h2>No se ha podido guardar el articulo</h2>")
+        return render(request,'recomender.html')
     
 def create_article(request):
     return render(request,'create_article.html')
