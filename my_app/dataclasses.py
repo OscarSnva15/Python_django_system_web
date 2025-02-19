@@ -21,8 +21,8 @@ class Collector:
         self.df = df
         self.coordinates = coordinates
         self.time_window = time_window
-        # Ruta a la imagen
-        self.mymap = plt.imread(os.path.join(os.path.dirname(__file__), 'static', 'images', 'map_CDNR.png'))
+        path = os.path.join(os.path.dirname(__file__), 'static/images', 'map_CDNR.png')
+        self.mymap = plt.imread(path)
         self.BBox = ((-99.3686, -99.2670, 19.58, 19.65))
         self.filter_bussines_code_class_support_acumulated = self.filter_by_code_support_acumulated()
         self.influence_radio = 0.280
@@ -30,9 +30,10 @@ class Collector:
 
     def filter_by_code_support_acumulated(self):
         codes_support = [465311, 812110, 463211, 461122, 722513, 467111, 461130, 461160, 311830, 311812, 722514, 461121, 464111, 722517, 561432, 467115, 811111, 722518, 722515, 722519, 621211, 332320, 461190, 813210, 465912, 466410, 468211, 531113, 713120, 811121]
-        df_filter_general = self.df[self.df['Código de la clase de actividad SCIAN'].isin(codes_support)]
+        df_filter_general = self.df[self.df['Código_de_la_clase_de_actividad_SCIAN'].isin(codes_support)]
         print("INIT Time Window:", self.time_window, "  TOTAL BUSSINESS SUPPORT ACUMULATED FOUND:", len(df_filter_general))
-        output_file = "./querys/distancias/reporte_distancias/filter_bussines_code_class_support_acumulated.xlsx"
+        path = os.path.join(os.path.dirname(__file__), 'data', 'filter_bussines_code_class_support_acumulated.xlsx')
+        output_file = path
         df = pd.DataFrame(df_filter_general)
         df.to_excel(output_file, index=False)
         return df
@@ -63,18 +64,20 @@ class Collector:
         results = []
         negocios_dentro_radio = []
         for idx_negocio, row_negocio in self.filter_bussines_code_class_support_acumulated.iterrows():
-
+            #print(type(self.coordinates))
+            #print(row_negocio)
             # Calcular la distancia entre la clase y el otro negocio
-            distancia = self.haversine(self.coordinates['Latitud'], self.coordinates['Longitud'], row_negocio['Latitud'], row_negocio['Longitud'])
+            
+            distancia = self.haversine(self.coordinates['lat'], self.coordinates['lng'], row_negocio['Latitud'], row_negocio['Longitud'])
 
             # Verificar si está dentro del radio
             if distancia < self.influence_radio:
                 negocios_dentro_radio.append({
-                    'punto_de_interes': str(self.coordinates['Latitud'])+'_'+str(self.coordinates['Longitud']),
+                    'punto_de_interes': str(self.coordinates['lat'])+'_'+str(self.coordinates['lng']),
                     'Radio_influencia': self.influence_radio,
-                    'Negocio_vecino_encontrado': row_negocio['Nombre de la Unidad Económica'],
-                    'Codigo': row_negocio['Código de la clase de actividad SCIAN'],
-                    'Tipo': row_negocio['Nombre de clase de la actividad'],
+                    'Negocio_vecino_encontrado': row_negocio['Nombre_de_la_Unidad_Económica'],
+                    'Codigo': row_negocio['Código_de_la_clase_de_actividad_SCIAN'],
+                    'Tipo': row_negocio['Nombre_de_clase_de_la_actividad'],
                     'Distancia_(m)': distancia,
                     'Longitud': row_negocio['Longitud'],
                     'Latitud': row_negocio['Latitud']
@@ -83,8 +86,8 @@ class Collector:
         # Agregar los negocios encontrados para esta ue
         if negocios_dentro_radio:
             results.extend(negocios_dentro_radio)
-
-        output_file = "./querys/distancias/reporte_distancias_point_interest/business_suport_acumulated_into_point_interest.xlsx"
+        path = os.path.join(os.path.dirname(__file__), 'data', 'business_suport_acumulated_into_point_interest.xlsx')
+        output_file = path
         df = pd.DataFrame(results)
         df.to_excel(output_file, index=False)
         self.business_support_into_radio_point_interest = df
@@ -110,14 +113,15 @@ class Collector:
         fig, ax = plt.subplots(figsize=(22, 12))
 
         #Plotear punto de interes
-        ax.scatter(self.coordinates['Longitud'],self.coordinates['Latitud'], color='blue', label='BusinessClass',marker='o', s=20, alpha=0.99)
+        ax.scatter(self.coordinates['lng'],self.coordinates['lat'], color='blue', label='BusinessClass',marker='o', s=20, alpha=0.99)
 
         #graficar radio de influencia del punto de interes
-        circ = plt.Circle((self.coordinates['Longitud'], self.coordinates['Latitud']), radius=(self.influence_radio/100), color='maroon',alpha=0.2)
+        circ = plt.Circle((self.coordinates['lng'], self.coordinates['lat']), radius=(self.influence_radio/100), color='maroon',alpha=0.2)
         ax.add_artist(circ)
 
         # Abrimos archivo generado de las unidades económicas base encontradas dentro del radio de influencia
-        df_bussines_into_ratio = pd.read_excel('./querys/distancias/reporte_distancias_point_interest/business_suport_acumulated_into_point_interest.xlsx')
+        path = os.path.join(os.path.dirname(__file__), 'data', 'business_suport_acumulated_into_point_interest.xlsx')
+        df_bussines_into_ratio = path
 
         #Plotear las unidades económicas base encontradas dentro del radio de influencia
         for idx_otros, row_f in df_bussines_into_ratio.iterrows():
@@ -133,7 +137,7 @@ class Collector:
         ax.set_ylim(self.BBox[2], self.BBox[3])
         ax.imshow(self.mymap, zorder=0, extent=self.BBox, aspect='equal')
         plt.show()
-        plt.savefig('./images_insights/plots_filter_by_code_show_plot/ratios_influence/'+str(self.coordinates['Latitud'])+'_'+str(self.coordinates['Longitud'])+'.png')
+        plt.savefig('./images_insights/plots_filter_by_code_show_plot/ratios_influence/'+str(self.coordinates['lat'])+'_'+str(self.coordinates['lng'])+'.png')
 
         if len(df_bussines_into_ratio):
             response = {
@@ -166,12 +170,12 @@ class Collector:
         for _, iter in self.filter_bussines_code_class_support_acumulated.iterrows():
             # Crea una copia del conteo
             local_counts = types_code.copy()
-            business_code = iter['Código de la clase de actividad SCIAN']
+            business_code = iter['Código_de_la_clase_de_actividad_SCIAN']
 
             # Verifica si el código está en los códigos de interés
             if business_code in local_counts:
                 distancia = self.haversine(
-                    self.coordinates['Latitud'], self.coordinates['Longitud'],
+                    self.coordinates['lat'], self.coordinates['lng'],
                     iter['Latitud'], iter['Longitud']
                 )
 
@@ -180,17 +184,18 @@ class Collector:
                     local_counts[business_code] += 1
 
             # Prepara la fila y la asigna en el DataFrame
-            row = [self.coordinates['Latitud'], self.coordinates['Longitud'], self.influence_radio] + list(
+            row = [self.coordinates['lat'], self.coordinates['lng'], self.influence_radio] + list(
                 local_counts.values())
             dfExcel.iloc[posicion_repor] = row
             posicion_repor += 1
 
         # Calcula y agrega los totales
-        total_counts = [self.coordinates['Latitud'], self.coordinates['Longitud'], self.influence_radio]
+        total_counts = [self.coordinates['lat'], self.coordinates['lng'], self.influence_radio]
         total_counts.extend([dfExcel[col].sum() for col in dfExcel.columns[3:]])
         dfExcel.loc[len(dfExcel)] = total_counts
 
         # Guarda el DataFrame en un archivo Excel
-        with pd.ExcelWriter('./querys/distancias/reporte_distancias_point_interest/report_accumulated_business_support_into_point.xlsx', engine='xlsxwriter') as writer: dfExcel.to_excel(writer, sheet_name='sheet1', index=True)
+        path = os.path.join(os.path.dirname(__file__), 'data', 'report_accumulated_business_support_into_point.xlsx')
+        with pd.ExcelWriter(path, engine='xlsxwriter') as writer: dfExcel.to_excel(writer, sheet_name='sheet1', index=True)
 
         return total_counts
