@@ -2,42 +2,33 @@
 {%load static%}
 {% block content %}
     {% comment %} {{block.super}} <!-- Esto es para que se muestre el contenido del bloque content del layout.html padre--> {% endcomment %}
-    <div class="container">
+    <div class="container scroll_div">
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"> 
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"> 
                 <p>Oscar Suarez Nava</p>
-                <p>¡Hello, nice to meet you!
-                    My professional career developed is based on skills from the software programming field. Making usability of languages such as Python,
-                    Java Script, SQL, and Machine Learning.
-                
-                    I have experience in the development of web applications, data analysis, and machine learning models. I have worked with libraries such as Flask, Django, Pandas, Numpy, Scikit-learn, among others.
-                </p>
-
-                <h3 align="center" > <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="29" height="29" style="margin-right: 10px;">Connect with me 🤝 </h3>
+                    <p class="justificado">¡Hello, nice to meet you!
+                        My professional career developed is based on skills from the software programming field. Making usability of languages such as Python,
+                        Java Script, SQL, and Machine Learning.
+                        I have experience in the development of web applications, data analysis, and machine learning models.
+                    </p>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 ">
                 <p class="text-center">
                     <img src="{% static 'images/OSN.JPG' %}" alt="imagen funcionamiento del sistema recomendador" class="img-fluid" width="244" height="244">
                 </p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"> 
-                <p align="center">
-                    <div align="center"  class="icons-social" style="margin-left: 10px;">
-                            <a style="margin-left: 10px;"  target="_blank" href="https://www.linkedin.com/in/oscarsnva15/">
-                            <img src="https://img.icons8.com/doodle/40/000000/linkedin--v2.png"></a>
-                            <a style="margin-left: 10px;" target="_blank" href="https://github.com/OscarSnva15">
-                            <img src="https://img.icons8.com/doodle/40/000000/github--v1.png"></a>
-                            <a style="margin-left: 10px;" target="_blank" href="https://stackoverflow.com/users/15711999/oscarsnva15">
-                            <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/40/000000/external-stack-overflow-is-a-question-and-answer-site-for-professional-logo-color-tal-revivo.png"></a>
-                            <a style="margin-left: 10px;" target="_blank" href="https://dev.to/oscarsnva15">
-                            <img Width="40" Height="40" src="https://img.icons8.com/?size=100&id=34278&format=png&color=000000"></a>
-                            <a style="margin-left: 10px;" target="_blank" href="https://www.instagram.com/oscar_snva/">
-                            <img src="https://img.icons8.com/doodle/40/000000/instagram-new--v2.png"></a>
-                            <a style="margin-left: 10px;" target="_blank" href="https://www.youtube.com/@OscarSnva15">
-                            <img src="https://img.icons8.com/doodle/1x/youtube--v2.png" ></a>
-                    </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"> 
+                <p>Heriberto Casarrubías Vargas</p>
+                <p class="justificado">¡Hello, nice to meet you!
+                    My professional career developed is based on skills from the software programming field. Making usability of languages such as Python,
+                    Java Script, SQL, and Machine Learning.
+                
+                    I have experience in the development of web applications, data analysis, and machine learning models.
+                </p>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 ">
+                <p class="text-center">
+                    <img src="{% static '#' %}" alt="imagen perfil doctor heriberto" class="img-fluid" width="244" height="244">
                 </p>
             </div>
         </div>

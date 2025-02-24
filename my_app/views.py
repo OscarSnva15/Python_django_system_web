@@ -190,13 +190,12 @@ def save_article(request):
                     621511:	"Laboratorios médicos y de diagnóstico del sector privado",
                     464121:	"Comercio al por menor de lentes",
                     465914:	"Comercio al por menor de artículos desechables",
-                    468420:	"Comercio al por menor de aceites y grasas lubricantes, aditivos y similares para vehículos de motor",
-                    532282:	"Alquiler de mesas, sillas, vajillas y similares"
+                    468420:	"Comercio al por menor de aceites y grasas lubricantes, aditivos y similares para vehículos de motor"
                 }
-        predictions_classification = knn_predict(X_train, y_train, X_test, k=3, task='classification')
-        print(negocios[predictions_classification[0]])
+        name_classification = knn_predict(X_train, y_train, X_test, k=3, task='classification')
+        print(negocios[name_classification[0]])
         
-        return render(request,'recomender.html',{'predictions_classification':negocios[predictions_classification[0]]})
+        return render(request,'recomender.html',{'name_classification':negocios[name_classification[0]],'code_class':name_classification[0]})
     else:
         return render(request,'recomender.html')
 

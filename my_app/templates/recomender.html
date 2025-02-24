@@ -12,7 +12,7 @@
                     <input type="submit" value="Probar">
                 </form>
                 <p class="text-warning">Recomendaciomes dado el punto seleccionado: </p>
-                <p> {{predictions_classification}} </p>
+                <p> {{name_classification}} </p>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ">
                 <p class="text-center">
@@ -63,5 +63,22 @@
                 </p>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"> 
+                {% if code_class %}
+                    <p class="text-center">
+                        {{code_class}}
+                    </p>
+                    <p class="text-center">
+                        <img src="{% static 'images/ratios_influence/'%}{{code_class}}.png" alt="img de influence, parte del sistema recomendador" class="img-fluid" width="430" height="430">
+                    </p>
+                {% else %}
+                    <p class="text-center">
+                        <img src="{% static 'images/map_CDNR.png'%}" alt="sn img ratio de influence, parte del sistema recomendador" class="img-fluid" width="430" height="430">
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+            
     </div>
 {% endblock %}
