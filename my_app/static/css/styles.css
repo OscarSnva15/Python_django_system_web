@@ -162,7 +162,6 @@ video {
         /* Oculta los controles */
         -webkit-controls: none;
         -moz-controls: none;
-        controls: none;
     }
     
     /* Para asegurarte de que los controles no se muestren en navegadores modernos */

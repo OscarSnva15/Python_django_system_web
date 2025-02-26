@@ -1,37 +1,35 @@
 {%extends "layout.html"%}
 {%load static%}
-
 {% block title %}{{title}}{% endblock %}
 {% block content %}
     <div class="container">
-        <div class="row">
+        <div class="row mt-5 mb-5">
             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <div class="row">
+                <div class="row ml-3">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <p class="justificado presentation-index">Ofrezca un servicio o producto al cliente de manera excepcional con Oscys.</p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ml-3 mt-3">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <p class="justificado presentation-text-index">Oscys es un sistema recomendador de negocios, Utilice Oscys en la zona de interes para completar un servicio al cliente excepcional, basada en la IA...</p>
                     </div>
                 </div>
-                <div class="row mt-5">
+                <div class="row ml-3 mt-4">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                        <button type="button" class="btn btn-primary" onclick="window.location.href='{%url 'recomender' %}';">Recomendación</button>
+                        <button type="button" class="btn btn-outline-success" onclick="window.location.href='{%url 'recomender' %}';">Recomendación</button>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ">
                 <div class="row ml-5">
-                    <video width="450" height="300" controls autoplay muted loop>
-                        <source src="{% static 'media/Sistema_recomendador_video.mp4' %}" type="video/mp4">
+                    <video width="450" height="282" controls autoplay muted loop>
+                        <source src="{% static 'media/Sistema_recomendador_video_.mp4' %}" type="video/mp4">
                         Tu navegador no soporta este video
                     </video>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{% static 'javascript/index.js' %}"></script>
 {% endblock %}
 
