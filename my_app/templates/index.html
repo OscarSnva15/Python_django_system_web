@@ -1,10 +1,8 @@
 {%extends "layout.html"%}
 {%load static%}
+
 {% block title %}{{title}}{% endblock %}
 {% block content %}
-{% comment %} {% include "fecha_actual.html" with saludo="hola mundo desde platilla importada" only %} {% endcomment %}
-    {% comment %} <h1 class="title"> {{title}} </h1> {% endcomment %}
-    {% comment %} Nota para el comentario {% endcomment %}
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -20,16 +18,20 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                        <button type="button" class="btn btn-primary">Ver demo</button>
-                        <button type="button" class="btn btn-secondary" onclick="window.location.href='{%url 'recomender' %}';">Comenzar recomendación</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='{%url 'recomender' %}';">Recomendación</button>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ">
-                <p class="text-center">
-                    <img src="{% static 'images/logo_Sr.png' %}" alt="imagen funcionamiento del sistema recomendador" class="img-fluid" width="430" height="430">
-                </p>
+                <div class="row ml-5">
+                    <video width="450" height="300" controls autoplay muted loop>
+                        <source src="{% static 'media/Sistema_recomendador_video.mp4' %}" type="video/mp4">
+                        Tu navegador no soporta este video
+                    </video>
+                </div>
             </div>
         </div>
     </div>
+    <script src="{% static 'javascript/index.js' %}"></script>
 {% endblock %}
+

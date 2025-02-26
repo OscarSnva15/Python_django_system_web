@@ -156,3 +156,32 @@ footer{
     text-justify: inter-word;
 
 }
+
+/* econder los controles del video */
+video {
+        /* Oculta los controles */
+        -webkit-controls: none;
+        -moz-controls: none;
+        controls: none;
+    }
+    
+    /* Para asegurarte de que los controles no se muestren en navegadores modernos */
+    video::-webkit-media-controls {
+        display: none;
+    }
+    
+    video::-webkit-media-controls-enclosure {
+        display: none;
+    }
+    
+    video::-webkit-media-controls-panel {
+        display: none;
+    }
+    
+    video::-webkit-media-controls-play-button {
+        display: none;
+    }
+    
+    video::-webkit-media-controls-start-playback-button {
+        display: none;
+    }
