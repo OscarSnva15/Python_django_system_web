@@ -24,8 +24,8 @@ def index(request):
         'nombre_coautor':nombre_coautor
         })#pasar el nombre de la template que queremos cargar
 
-def abouth(request):
-    return render(request,'abouth.html')
+def about(request):
+    return render(request,'about.html')
 
 def recomender(request):
     return render(request,'recomender.html')
