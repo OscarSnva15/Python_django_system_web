@@ -3,42 +3,51 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"> 
-                <form action="{% url 'save' %}" method="GET">
-                    <p class="text-info">Seleccione el espacio de coordenadas donde desea situar su local</p>
-                    <label for ="coordenadas">Coordenadas</label>
-                    <input type="text" name="coordenadas" id="coordenadas" placeholder="Ejemplo: 19.619825075911173, -99.31215790614145" required>
-                    <input type="submit" value="Probar">
-                </form>
-                <p class="text-warning">Recomendaciomes dado el punto seleccionado: </p>
-                <p> {{name_classification}} </p>
+            <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
+                <p class="presentation-text-index">Seleccione en el mapa, las coordenadas en donde desea situar su local</p>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ">
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <p class="text-center">
                     <a target="_blank" align="center">
                         <div id="map">
-
+                            
                         </div>
                     </a>
                 </p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"> 
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 pt-3">
                 {% if code_class %}
                     <p class="text-center">
-                        {{code_class}}
-                    </p>
-                    <p class="text-center">
-                        <img src="{% static 'images/ratios_influence/'%}{{code_class}}.png" alt="img de influence, parte del sistema recomendador" class="img-fluid" width="430" height="430">
+                        <img src="{% static 'images/ratios_influence/'%}{{code_class}}.png" alt="img de influence, parte del sistema recomendador" class="img-fluid" width="430" height="310">
                     </p>
                 {% else %}
                     <p class="text-center">
-                        <img src="{% static 'images/map_CDNR.png'%}" alt="sn img ratio de influence, parte del sistema recomendador" class="img-fluid" width="430" height="430">
+                        <img src="{% static 'images/map_CDNR.png'%}" alt="sn img ratio de influence, parte del sistema recomendador" class="img-fluid" width="430" height="340">
                     </p>
                 {% endif %}
+                <p class="text-center text-success p-0 m-0">{{code_class}} {{name_classification}} </p>
             </div>
         </div>
+        
+        <form action="{% url 'save' %}" method="GET">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Coordenadas</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="coordenadas" id="coordenadas" placeholder="Ejemplo: 19.619825075911173, -99.31215790614145" required>
+                        </div>
+
+                    
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+                    <button type="submit" value="Probar" class="btn btn-outline-success">Recomendación</button>
+                </div>
+            </div>
+        </form>
+        
     </div>
     {% comment %} comienza logica java script para le archivo recomender.html {% endcomment %}
     <script src="{% static '/javascript/recomender.js' %}"></script>

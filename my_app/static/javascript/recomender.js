@@ -29,4 +29,3 @@ async function initMap() {
     });
 }
 initMap();
-console.log('****************HELOOOO2222')
